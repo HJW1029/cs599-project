@@ -10,7 +10,6 @@ flowchart LR
   Agent --> Memory["SQLite Memory"]
   Agent --> POITool["POI Search Tool"]
   POITool --> Overpass["OpenStreetMap Overpass API"]
-  POITool --> Fallback["Local Fallback POIs"]
   Agent --> Ranker["Ranking + Reasoning"]
   Ranker --> Trace["traces/*.json"]
   Ranker --> UI
@@ -37,13 +36,13 @@ stateDiagram-v2
 | API | `src/travelmind/api.py` | HTTP 路由、静态资源服务 |
 | Agent | `src/travelmind/agent.py` | 多步推荐工作流 |
 | Memory | `src/travelmind/memory.py` | 用户偏好与历史记录 |
-| POI Tool | `src/travelmind/tools/poi.py` | Overpass 查询与 fallback |
+| POI Tool | `src/travelmind/tools/poi.py` | Overpass 查询、POI 解析与去重 |
 | Geo Tool | `src/travelmind/tools/geo.py` | 距离计算 |
 | Schemas | `src/travelmind/schemas.py` | 请求与响应模型 |
 
 ## 4. Agentic AI 要素
 
-- 工具调用：POI Search Tool、Geo Tool、Memory Tool。
+- 工具调用：POI Search Tool、Geo Tool、Geocode Tool、Memory Tool。
 - 状态管理：推荐请求在 load/search/rank/explain/itinerary/save/trace 间流转。
 - 记忆机制：SQLite 持久化用户偏好与历史推荐。
 - 多步推理：地点识别、候选召回、排序、理由生成、路线组织。
@@ -53,7 +52,7 @@ stateDiagram-v2
 
 1. 前端发送经纬度、偏好、半径和节奏。
 2. 后端读取用户历史偏好。
-3. Agent 调用 POI 工具查询周边地点。
-4. Agent 根据距离、评分估计和偏好计算推荐分。
+3. Agent 调用 POI 工具查询周边真实地点。
+4. Agent 根据直线距离、评分估计和偏好计算推荐分。
 5. Agent 生成推荐理由和半日游路线。
 6. 系统保存偏好、历史和 trace，并返回结果。

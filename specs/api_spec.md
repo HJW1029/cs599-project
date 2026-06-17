@@ -76,7 +76,7 @@
         "tags": {}
       },
       "score": 0.91,
-      "reason": "Example 距离约 0.80km，评分估计 4.6，符合你的兴趣偏好；该地点适合拍照、散步和城市观景。",
+      "reason": "Example 直线距离约 800m，评分估计 4.6，符合你的兴趣偏好；该地点适合拍照、散步和城市观景。",
       "suggested_duration_minutes": 60
     }
   ],
