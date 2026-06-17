@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TravelMind Agent</title>
+    <link rel="stylesheet" href="/static/vendor/leaflet.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <div class="map-panel">
+          <div id="map"></div>
+        </div>
+        <aside class="side-panel">
+          <header class="brand">
+            <div>
+              <p class="eyebrow">TravelMind Agent</p>
+              <h1>地图选点式城市周边推荐</h1>
+            </div>
+            <span id="status" class="status">选择地图位置</span>
+          </header>
+
+          <section class="controls" aria-label="推荐偏好">
+            <div class="field">
+              <label for="searchInput">搜索地名</label>
+              <div class="search-row">
+                <input id="searchInput" type="search" placeholder="输入城市、景点或地址" />
+                <button id="searchBtn" type="button" class="secondary">搜索</button>
+              </div>
+              <div id="searchResults" class="search-results" aria-live="polite"></div>
+            </div>
+
+            <button id="locateBtn" type="button" class="secondary">定位当前位置</button>
+
+            <div class="field">
+              <label for="radius">搜索半径 <span id="radiusValue">3.0km</span></label>
+              <input id="radius" type="range" min="1" max="8" step="0.5" value="3" />
+            </div>
+
+            <div class="field">
+              <label for="pace">游玩节奏</label>
+              <select id="pace">
+                <option value="balanced">均衡</option>
+                <option value="relaxed">轻松</option>
+                <option value="intensive">紧凑</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <span class="label">兴趣偏好</span>
+              <div class="chips">
+                <label><input type="checkbox" value="scenic" checked /> 景点</label>
+                <label><input type="checkbox" value="culture" checked /> 文化</label>
+                <label><input type="checkbox" value="food" checked /> 美食</label>
+                <label><input type="checkbox" value="leisure" /> 休闲</label>
+                <label><input type="checkbox" value="shopping" /> 购物</label>
+              </div>
+            </div>
+
+            <button id="recommendBtn" type="button">生成推荐</button>
+          </section>
+
+          <section class="result-summary">
+            <div>
+              <span class="metric" id="countMetric">0</span>
+              <span class="metric-label">推荐地点</span>
+            </div>
+            <div>
+              <span class="metric" id="traceMetric">-</span>
+              <span class="metric-label">Trace</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>推荐结果</h2>
+            <div id="recommendations" class="cards empty">点击地图选择地点后生成推荐</div>
+          </section>
+
+          <section>
+            <h2>半日游路线</h2>
+            <ol id="itinerary" class="timeline"></ol>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script src="/static/vendor/leaflet.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
