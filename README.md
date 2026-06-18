@@ -6,6 +6,14 @@ TravelMind Agent 是一个面向城市出行场景的地图选点式旅游推荐
 
 本项目重点解决旅游搜索中的三个问题：地点信息分散、推荐结果缺少解释、用户需要在地图与攻略之间反复切换。系统以 Agentic AI 工作流组织推荐过程，使“选点、检索、筛选、排序、解释、记录”形成完整闭环。
 
+## 在线演示
+
+- 系统地址：https://cs599-project.onrender.com
+- 健康检查：https://cs599-project.onrender.com/api/health
+- 部署平台：Render Web Service
+
+免费实例在一段时间无访问后会自动休眠，首次打开可能需要等待服务启动。
+
 ## 方向
 
 方向一：Agentic AI 原生开发。
@@ -21,6 +29,7 @@ TravelMind Agent 是一个面向城市出行场景的地图选点式旅游推荐
 - 记忆机制：SQLite
 - 可观测性：Agent trace JSON
 - 测试工具：pytest、FastAPI TestClient
+- 云端部署：Render
 
 ## 核心功能
 
