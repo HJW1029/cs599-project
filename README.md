@@ -48,6 +48,7 @@ TravelMind Agent 是一个面向城市出行场景的地图选点式旅游推荐
 ```text
 cs599-project/
 ├── docs/                  # 项目报告提纲与架构说明
+│   └── CS599_大作业报告.pdf # 最终课程报告
 ├── specs/                 # Product Spec / Architecture Spec / API Spec
 ├── src/travelmind/        # 系统源码
 │   ├── api.py             # FastAPI 接口与静态页面服务
@@ -133,4 +134,4 @@ D:\anaconda\envs\sam2\python.exe -m pytest -q
 - [x] MVP
 - [x] Specs
 - [x] Test
-- [ ] Final report
+- [x] Final report
