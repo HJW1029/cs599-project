@@ -12,7 +12,7 @@ TravelMind Agent 是一个面向城市出行场景的地图选点式旅游推荐
 
 ## 技术栈
 
-- AI IDE：Trae CN / Codex
+- AI IDE：Trae CN
 - 后端框架：Python、FastAPI
 - Agent 设计：工具调用式推荐流程、状态化任务编排
 - 地图服务：Leaflet、OpenStreetMap
